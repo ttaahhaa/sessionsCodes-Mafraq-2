@@ -1,0 +1,20 @@
+{
+  "name": "routing",
+  "version": "1.0.0",
+  "description": "this project illustrates the routing topic in node",
+  "main": "app.js",
+  "scripts": {
+    "start":"nodemon app.js"
+  },
+  "keywords": [
+    "routing"
+  ],
+  "author": "Taha almasi",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
