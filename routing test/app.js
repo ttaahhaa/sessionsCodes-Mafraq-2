@@ -1,22 +1,17 @@
 const express = require("express")
 const app = express()
-const bodyParser = require("body-parser")
+const path = require("path")
 
-const bodyParserMW = bodyParser.urlencoded({
-    extended: true
-})
+
+
 app.get("/", (req, res, next)=>{
-    res.write ("<html>")
-    res.write ("<head><title>This is an example of post</title>")
-    res.write ("</head>")
-    res.write ('<body><form action="/message" method="POST"><input type="text" name="username" id=""><button type="submit">Click me</button></form></body>')
-    res.write ("</html>")
-    res.end()
+    res.sendFile(path.join(__dirname, "views", "index.html"))
 })
-const posting = 
-app.post("/message", bodyParserMW, (req, res, next)=>{
-    console.log(req.body)
+
+app.post("/message", express.urlencoded({extended: true}), (req, res, next)=>{
+    console.log(req.body.gender)
+    res.sendFile(path.join(__dirname, "views", "ok.html"))
 })
-app.listen(3000, ()=>{
-    console.log("listening on 3000...")
+app.listen(5000, ()=>{
+    console.log("listening on 5000...")
 })
